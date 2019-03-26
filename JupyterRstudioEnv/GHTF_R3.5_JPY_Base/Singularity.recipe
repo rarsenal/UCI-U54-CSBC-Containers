@@ -1,0 +1,13 @@
+Bootstrap: docker
+From: ucigenomics/ghtf-r3.5-jpy-base
+
+%post
+    groupadd som
+    usermod -aG som jovyan
+    chown -R jovyan:som /opt/conda
+    chmod -R g+rwx /opt/conda
+    mkdir /data /dfs1 /dfs2 /dfs3 /pub /share
+
+
+%environment
+    export PATH=/home/jovyan:$PATH
